@@ -11,6 +11,7 @@
 }
 
 body {
+    background-color: var(--background-portfolio-color);
     margin: 0;
     padding: 0;
     font-family: Roboto, sans-serif;
@@ -738,6 +739,8 @@ img {
     height: 100%;
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -745,14 +748,20 @@ img {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     width: 528px;
     height: 581px;
     background-color: #fff;
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
